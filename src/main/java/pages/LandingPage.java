@@ -9,7 +9,6 @@ public class LandingPage {
 
 
     //Locators declared as private final. This means they can't be accidentally modified.
-    private final By loginPage= By.id("my_account");
     private final By elements= By.xpath("//h5[text()='Elements']");
 
     //Constructor
