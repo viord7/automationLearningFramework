@@ -10,6 +10,8 @@ public class LandingPage {
 
     //Locators declared as private final. This means they can't be accidentally modified.
     private final By elements= By.xpath("//h5[text()='Elements']");
+    private final By forms= By.xpath("//h5[text()='Forms']");
+
 
     //Constructor
     public LandingPage(WebDriver driver){
@@ -20,4 +22,6 @@ public class LandingPage {
     public void clickOnElements(){
         driver.findElement(elements).click();
     }
+
+    public void clickOnForms(){ driver.findElement(forms).click();}
 }
