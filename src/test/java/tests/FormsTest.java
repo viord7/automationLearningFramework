@@ -22,7 +22,7 @@ public class FormsTest extends BaseTest {
     public void verifyFormsPage(){
         landingPage.clickOnForms();
         formsPage.clickOnPracticeForm();
-        formsPage.addANewEntryInStudentRegForm("John", "Doe", "John.Doe@test.com", "1234567891", "src/test/resources/aiStudent.jpg", 'O');
+        formsPage.addANewEntryInStudentRegForm("John", "Doe", "John.Doe@test.com", "1234567891", "src/test/resources/aiStudent.jpg", "Male", "Social", "Street:  662 Raintree Boulevard", "NCR", "Noida");
     }
 
 }
