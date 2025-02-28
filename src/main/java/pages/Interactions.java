@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class Interactions {
     //Methods
     public void clickOnSortable(){
         driver.findElement(sortableMenu).click();
+        Select select;
     }
 
     public void getElementsFromList(){
@@ -41,4 +44,18 @@ public class Interactions {
         }
         return textsList;
         }
+
+    public void switchingElements(){
+        List<WebElement> list = driver.findElements(sortableList);
+        Actions actions = new Actions(driver);
+        WebElement currentElement;
+        WebElement nextElement;
+        for(int var=0;var<list.size();var++){
+        currentElement=list.get(var);
+        nextElement=list.get(var+1);
+        actions.clickAndHold(currentElement).moveToElement(nextElement).release().build().perform();
+        }
+    }
 }
+
+

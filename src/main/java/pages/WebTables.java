@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class WebTables {
 
@@ -18,6 +21,7 @@ public class WebTables {
     private final By salaryRegForm = By.id("salary");
     private final By departmentForm = By.id("department");
     private final By submitButtonRegForm = By.id("submit");
+    private final By filledRows = By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -even' or @class='rt-tr -odd']");
 
     //Constructor
     public WebTables(WebDriver driver){
@@ -36,5 +40,14 @@ public class WebTables {
         driver.findElement(salaryRegForm).sendKeys(salary.toString());
         driver.findElement(departmentForm).sendKeys(department);
         driver.findElement(submitButtonRegForm).click();
+    }
+
+    public int nrOfFilledRowsFromTable(){
+        List<WebElement> filledRowList = driver.findElements(filledRows);
+        return filledRowList.size();
+    }
+
+    public String getRowNrValues(int index){
+        return driver.findElements(filledRows).get(index).getText();
     }
 }

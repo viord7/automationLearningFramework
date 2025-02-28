@@ -48,12 +48,22 @@ private final By subjectsInput = By.id("subjectsInput");
     private final By stateAndCityForm = By.xpath("//div[text()='Select State']");
     private final By stateAndCityInput = By.id("react-select-3-input");
     private final By cityForm = By.id("react-select-4-input");
+    private final By submitButton = By.id("submit");
+    private final By closeButton = By.id("closeLargeModal");
 
 
 
     //Methods
     public void clickOnPracticeForm() {
         driver.findElement(practiceForm).click();
+    }
+
+    public void clickOnSubmitButton(){
+        driver.findElement(submitButton).click();
+    }
+
+    public void clickOnCloseButton(){
+        driver.findElement(closeButton).click();
     }
 
     public void addANewEntryInStudentRegForm(String firstName, String lastName, String email, String mobileNumber, String pathToFile, String gender, String subjects, String currentAddress, String state, String city) {
@@ -88,7 +98,5 @@ private final By subjectsInput = By.id("subjectsInput");
         javaScriptExecutor.executeScript("arguments[0].click();",driver.findElement(cityForm));
         driver.findElement(cityForm).sendKeys(city);
         driver.findElement(cityForm).sendKeys(Keys.ENTER);
-
-
     }
 }
